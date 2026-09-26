@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #f7f3f3;
+            color: #333;
+        }
+
+        header {
+            background: #4b2e2e;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 35px auto;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: #666;
+        }
+
+        .value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #4b2e2e;
+        }
+
+        .status {
+            background: white;
+            margin-top: 25px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        }
+
+        .status h2 {
+            color: #4b2e2e;
+        }
+
+        .info {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: #4b2e2e;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 700px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Smart Queue Management System</h1>
+    <p>User Dashboard</p>
+</header>
+
+<div class="container">
+
+    <h2>Welcome!</h2>
+    <p>Track your queue status below.</p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Your Token</h3>
+            <div class="value">
+                {{ token or "—" }}
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Now Serving</h3>
+            <div class="value">
+                {{ current_token or "Not Serving" }}
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>People Waiting</h3>
+            <div class="value">
+                {{ waiting_count or 0 }}
+            </div>
+        </div>
+
+    </div>
+
+    <div class="status">
+
+        <h2>Live Queue Status</h2>
+
+        <div class="info">
+            <strong>Estimated Wait:</strong>
+            {{ estimated_wait or "Calculating..." }}
+        </div>
+
+        <div class="info">
+            <strong>Status:</strong>
+            {{ status or "Waiting" }}
+        </div>
+
+        <a href="/" class="btn">Back to Home</a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

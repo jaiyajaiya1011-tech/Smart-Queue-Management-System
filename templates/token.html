@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Token - SmartQueue</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f1eb;
+            text-align: center;
+            padding: 50px;
+            color: #222;
+        }
+
+        .token-card {
+            background: white;
+            max-width: 400px;
+            margin: auto;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            color: #3d2b1f;
+        }
+
+        .token-number {
+            font-size: 55px;
+            font-weight: bold;
+            color: #3d2b1f;
+            margin: 25px 0;
+        }
+
+        .status {
+            font-size: 20px;
+            margin: 15px;
+        }
+
+        button {
+            background: #3d2b1f;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="token-card">
+
+        <h1>Your Digital Token</h1>
+
+        <div class="token-number">
+            {{ token_number }}
+        </div>
+
+        <p>Service: {{ service }}</p>
+
+        <p class="status">Status: Waiting</p>
+
+        <a href="/">
+            <button>Back to Home</button>
+        </a>
+
+    </div>
+
+</body>
+</html>

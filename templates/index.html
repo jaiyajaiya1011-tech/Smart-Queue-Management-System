@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Queue Management System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>Smart Queue Management System</h1>
+    <p>Digital Queue Management</p>
+</header>
+
+<div class="container">
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total Tokens</h3>
+            <div class="value">
+                {{ total_tokens or 0 }}
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Waiting Customers</h3>
+            <div class="value">
+                {{ waiting_count or 0 }}
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Now Serving</h3>
+            <div class="value">
+                {{ current_token or "Not Serving" }}
+            </div>
+        </div>
+
+    </div>
+
+    <div class="status">
+
+        <h2>Digital Token</h2>
+
+        <form method="POST" action="/generate-token">
+
+            <label for="service">Select Service</label>
+
+            <select name="service" id="service" required>
+                <option value="">Select a service</option>
+                <option value="General Service">General Service</option>
+                <option value="Customer Service">Customer Service</option>
+                <option value="Support">Support</option>
+                <option value="Billing">Billing</option>
+            </select>
+
+            <button type="submit">
+                Generate Token
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="queue">
+
+        <h2>Queue Management</h2>
+
+        <p class="info">
+            Current Token:
+            <strong>{{ current_token or "Not Serving" }}</strong>
+        </p>
+
+        <p class="info">
+            Waiting Customers:
+            <strong>{{ waiting_count or 0 }}</strong>
+        </p>
+
+        <a href="/admin-dashboard" class="btn">
+            Admin Dashboard
+        </a>
+
+        <a href="/user-dashboard" class="btn">
+            User Dashboard
+        </a>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
